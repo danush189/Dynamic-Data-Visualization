@@ -6,13 +6,13 @@ import plotly.graph_objects as go
 from data_service import DataService
 import base64
 import pandas as pd
+from dotenv import load_dotenv
+import os
 
-# AWS Credentials - Should be stored securely in production environments
-AWS_ACCESS_KEY_ID = "AKIAVPZVT6MHWR6XUUW2"
-AWS_SECRET_ACCESS_KEY = "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"
+load_dotenv()
 
 # Initialize data service
-data_service = DataService(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+data_service = DataService(os.getenv("AWS_ACCESS_KEY_ID"),os.getenv("AWS_SECRET_ACCESS_KEY"))
 
 # Default S3 bucket and prefix
 BUCKET_NAME = "ieee-dataport"
@@ -37,7 +37,7 @@ app.index_string = '''
 <html>
     <head>
         {%metas%}
-        <title>Smart Data Visualization Platform</title>
+        <title>IEEE Dataport Visualization Platform</title>
         {%favicon%}
         {%css%}
         <style>
@@ -123,7 +123,7 @@ def serve_layout():
                 html.A(
                     dbc.Row([
                         dbc.Col(html.I(className="fas fa-chart-line me-2"), width="auto"),
-                        dbc.Col(dbc.NavbarBrand("Smart Data Visualization Platform"), width="auto")
+                        dbc.Col(dbc.NavbarBrand("IEEE Dataport Visualization Platform"), width="auto")
                     ], align="center"),
                     href="#",
                     style={"textDecoration": "none"}
@@ -312,7 +312,7 @@ def serve_layout():
             dbc.Container([
                 dbc.Row([
                     dbc.Col([
-                        html.H5("Smart Data Visualization Platform"),
+                        html.H5("IEEE Dataport Visualization Platform"),
                         html.P("Advanced data visualization tools for exploratory data analysis."),
                     ], md=6),
                     dbc.Col([
@@ -333,7 +333,7 @@ def serve_layout():
                     ], md=3),
                 ]),
                 html.Hr(),
-                html.P("© 2025 Smart Data Visualization Platform. All rights reserved.", className="text-center mt-3")
+                html.P("© 2025 IEEE Dataport Visualization Platform. All rights reserved.", className="text-center mt-3")
             ])
         ], className="footer"),
         
