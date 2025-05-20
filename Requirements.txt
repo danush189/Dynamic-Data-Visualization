@@ -3,3 +3,6 @@ dash-bootstrap-components
 plotly
 boto3
 pandas
+scipy
+h5py
+openpyxl
