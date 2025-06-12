@@ -1,1 +1,9 @@
+# Python defaults
+__pycache__
+
+# Environment variables
 .env
+
+# Virtual environments
+venv/
+.venv/

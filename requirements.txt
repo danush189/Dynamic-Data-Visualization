@@ -6,3 +6,5 @@ pandas
 scipy
 h5py
 openpyxl
+dotenv
+
